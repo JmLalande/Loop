@@ -20,6 +20,8 @@
   --shell:#08090A; --panel:rgba(255,255,255,.038); --panel2:rgba(255,255,255,.055);
   --line:rgba(255,255,255,.075); --pale:#F4F4F5; --dim:#8A8F95; --faint:#5C6167;
   --teal:#54DFC3; --amber:#FFC46B;
+  /* the freeze. Cold, and the only blue in an app that is otherwise orange. */
+  --ice:#9CC7F0; --ice-lit:#C9E2F8; --ice-rgb:124,178,235;
   --r:22px;
   --lift:0 1px 2px rgba(0,0,0,.5), 0 16px 44px -18px rgba(0,0,0,.8);
   --font:Geist,ui-sans-serif,-apple-system,system-ui,sans-serif;
@@ -241,7 +243,7 @@ details.cue b{color:var(--pale);font-weight:500}
   color:var(--faint);font-size:12.5px;line-height:1.5}
 .cue .harder b{display:block;color:var(--acc);font-weight:600;font-size:10px;letter-spacing:.09em;
   text-transform:uppercase;margin-bottom:3px}
-.cal .c.frz{background:rgba(122,178,255,.16);color:#9FC4F0}
+.cal .c.frz{background:rgba(var(--ice-rgb),.17);color:var(--ice)}
 .cal .c.miss{background:rgba(255,255,255,.015);color:#3A3E43}
 .cal .c.future{opacity:.3}
 .cal .c.today{box-shadow:inset 0 0 0 1.5px var(--pale)}
@@ -289,9 +291,14 @@ details.cue b{color:var(--pale);font-weight:500}
 .editcta{display:block;width:100%;margin-top:14px;background:var(--panel);border:1px solid var(--line);
   color:var(--dim);border-radius:999px;padding:13px;font-size:13.5px;font-weight:500}
 .cyclepos{margin-top:7px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500}
-.freezecta{display:block;width:100%;margin-top:14px;background:var(--panel);border:1px solid var(--line);
-  color:var(--dim);border-radius:999px;padding:13px;font-size:13.5px;font-weight:500}
-.freezecta.on{background:rgba(122,178,255,.14);border-color:rgba(122,178,255,.34);color:#BBD6FF}
+.freezecta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:14px;
+  background:rgba(var(--ice-rgb),.07);border:1px solid rgba(var(--ice-rgb),.24);
+  color:var(--ice);border-radius:999px;padding:13px;font-size:13.5px;font-weight:500}
+.freezecta svg{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.55;
+  stroke-linecap:round;stroke-linejoin:round}
+/* Frozen is the same blue with the lights on, so the two states read as one
+   thing in two conditions rather than two different buttons. */
+.freezecta.on{background:rgba(var(--ice-rgb),.17);border-color:rgba(var(--ice-rgb),.42);color:var(--ice-lit)}
 .freezecta:disabled{opacity:.42}
 .freezenote{margin-top:9px;text-align:center;font-size:11.5px;color:var(--faint);font-weight:400}
 /* The next workout is the only thing worth pointing at on a page with no weekdays. */
@@ -383,7 +390,7 @@ details.cue b{color:var(--pale);font-weight:500}
     <div class="nudge" id="nudge" style="display:none"></div>
     <button class="go" id="startBtn">Start session</button>
     <button class="editcta" id="editToday" style="display:none"></button>
-    <button class="freezecta" id="freezeBtn" style="display:none"></button>
+    <button class="freezecta" id="freezeBtn" style="display:none"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M9.4 4.1L12 6.5l2.6-2.4M9.4 19.9L12 17.5l2.6 2.4"/><g transform="rotate(60 12 12)"><path d="M12 3v18M9.4 4.1L12 6.5l2.6-2.4M9.4 19.9L12 17.5l2.6 2.4"/></g><g transform="rotate(120 12 12)"><path d="M12 3v18M9.4 4.1L12 6.5l2.6-2.4M9.4 19.9L12 17.5l2.6 2.4"/></g></svg><span id="freezeLbl"></span></button>
     <div class="freezenote" id="freezeNote"></div>
     <div class="card">
       <ul class="plan" id="planList"></ul>

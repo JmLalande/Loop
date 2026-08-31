@@ -29,7 +29,7 @@ const fmt=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+String(s%6
 function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("on");
   clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2600);}
 
-const APP_VERSION="v3";
+const APP_VERSION="v4";
 const qualifies=s=>!!(s&&s.sets&&s.sets.length>=1);
 /* A movement done one side at a time writes a row per side, so a row is not a
    set. Everything that counts sets out loud counts them this way. */
@@ -227,15 +227,18 @@ function renderRoutine(){
 /* ----------------------------------------------------------------- freeze */
 function renderFreeze(){
   const left=freezesLeft(), today=todayISO(), frozen=!!FREEZES[today],
-        trained=qualifies(SESSIONS[today]), btn=$("freezeBtn"), note=$("freezeNote");
+        trained=qualifies(SESSIONS[today]), btn=$("freezeBtn"), note=$("freezeNote"),
+        /* The snowflake is markup inside the button, so the label is its own
+           element. Writing to the button would delete the icon. */
+        lbl=$("freezeLbl");
   note.textContent=left+" of "+FREEZES_PER_CYCLE+" freezes left this cycle";
   if(frozen){
-    btn.style.display="block";btn.textContent="Today is frozen · undo";
+    btn.style.display="flex";lbl.textContent="Today is frozen · undo";
     btn.classList.add("on");btn.disabled=false;
   }else if(trained){
     btn.style.display="none";
   }else{
-    btn.style.display="block";btn.textContent=left?"Freeze today":"No freezes left";
+    btn.style.display="flex";lbl.textContent=left?"Freeze today":"No freezes left";
     btn.classList.remove("on");btn.disabled=!left;
   }
 }
