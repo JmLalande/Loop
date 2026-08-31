@@ -29,7 +29,7 @@ const fmt=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+String(s%6
 function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("on");
   clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2600);}
 
-const APP_VERSION="v2";
+const APP_VERSION="v3";
 const qualifies=s=>!!(s&&s.sets&&s.sets.length>=1);
 /* A movement done one side at a time writes a row per side, so a row is not a
    set. Everything that counts sets out loud counts them this way. */
@@ -43,7 +43,7 @@ const setCount=a=>new Set((a||[]).map(x=>x.m+"#"+x.set)).size;
 const sessionCount=()=>Object.values(SESSIONS).filter(qualifies).length;
 const nextSlot=()=>sessionCount()%CYCLE.length;
 /* Which cycle's freezes are spendable right now. Not floor(): the rest days come
-   AFTER the fifth session, and floor() rolls the counter over the moment that
+   after the fifth session, and floor() rolls the counter over the moment that
    session is logged, so a Saturday off was billed to the cycle that had not
    started yet. She then began every Monday with nothing left and the next
    weekend broke the streak. ceil()-1 keeps the weekend on the week it belongs

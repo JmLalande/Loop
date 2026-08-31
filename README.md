@@ -1,8 +1,8 @@
 # Loop
 
-Fifteen minutes a day, at home. Knees, glutes and core. Every movement is
-bodyweight in its base version except the two band walks, and the band and the
-vest are how it gets harder later.
+Fifteen minutes a day, at home. Knees, glutes and core. Everything starts at
+bodyweight except the two band walks. The band and the vest come later, as the
+way to make a movement harder.
 
 Live: https://jmlalande.github.io/Loop/
 
@@ -13,16 +13,17 @@ logged. Nothing is keyed to the calendar, so there is no Monday workout. Miss a
 day and the cursor stays put, which slides the whole cycle against the week.
 
 Two rest days per cycle, taken as **freezes**. A freeze holds the streak without
-counting toward it, so the number on screen stays a count of sessions done. Two
-are granted at the top of every cycle and they do not carry over, which caps her
-at two a week without any calendar arithmetic: a cycle that spends both is seven
-days long.
+counting toward it, so the number on screen stays a count of sessions done.
 
-Freezing is a button, and there is also a safety net. Nothing can run at midnight
-in a page that is closed, so a missed day is only discovered when she opens the
-app again. It then covers the whole gap or none of it, because spending both
-freezes on a five-day absence breaks the streak anyway and leaves her with
-nothing for the Tuesday after.
+Two are granted at the top of every cycle and they never carry over. That is what
+caps her at two a week, with no calendar arithmetic anywhere: a cycle that spends
+both is seven days long.
+
+Freezing is a button, and there is a safety net behind it. Nothing can run at
+midnight in a page that is closed, so a missed day is only found when she opens
+the app again. It then covers the whole gap or none of it. Spending both freezes
+on a five-day absence breaks the streak anyway and leaves her with nothing for
+the Tuesday after.
 
 Break the streak and only the streak resets. The cursor stays on the workout she
 was actually on, and the freezes left in that cycle stay as they were.
@@ -41,12 +42,17 @@ streak ends.
 harder. Both are on screen: the load during the set, the progression on the
 routine page under the cue.
 
-Run `node check.js` after touching `program.js`. The spacing rules live across
-days and break quietly, so it asserts them: no movement on two days in a row
-anywhere in the loop, day 5 back into day 1 included, the two knee holds at
-least two days apart, holds carrying no RIR target, the on-ramp overriding every
-rep movement, French punctuation on everything she reads, and every session
-landing between twelve and eighteen minutes.
+Run `node check.js` after touching `program.js`. Block order and rep ranges are
+readable at a glance, but the spacing rules live across days and break quietly,
+so the checker asserts them:
+
+- No movement on two days in a row, anywhere in the loop. Day 5 runs back into
+  day 1, so those two count as adjacent.
+- The two knee holds at least two days apart.
+- Holds carry no RIR target, rep movements carry one.
+- The on-ramp overrides every rep movement.
+- French punctuation on everything she reads.
+- Every session lands between twelve and eighteen minutes.
 
 ## Language
 
@@ -62,7 +68,8 @@ English for the app chrome: movement names, tabs, buttons, stats.
   overtime until you tap. Rest auto-advances, with four ticks and a go tone.
 - Tapping anywhere ends the current phase and **shifts the entire remaining
   schedule**, so finishing early or late reflows the projected finish time.
-- Weeks 1-2 hold her to 3-4 reps in reserve, band only, no vest.
+- Weeks 1-2 hold her to 3-4 reps in reserve, on the base version of every
+  movement, no progressions.
 - Hit the top of a rep range twice running and it names the next rung.
 
 ## Data
