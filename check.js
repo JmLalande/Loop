@@ -56,7 +56,7 @@ Object.entries(M).forEach(([k, m]) => {
   ["cue", "next", "load", "side"].forEach(f => {
     const t = m[f];
     if (typeof t !== "string" || !t) return;
-    if (/[—;…’]/.test(t)) fail.push(k + "." + f + " uses a banned character");
+    if (/[, ;…’]/.test(t)) fail.push(k + "." + f + " uses a banned character");
     if (/\s[?!,]|\S:|:\S/.test(t)) fail.push(k + "." + f + " breaks Quebec punctuation spacing");
   });
   if (!m.next) note.push(k + " has no progression, so the routine page shows nothing under it");
