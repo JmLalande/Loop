@@ -51,12 +51,22 @@ CYCLE.forEach((d, i) => buildPhases(i, false).filter(p => p.type === "work").for
 CYCLE.forEach((d, i) => buildPhases(i, true).filter(p => p.type === "work" && !M[p.m].hold)
   .forEach(p => { if (String(p.rir) !== String(ONRAMP_RIR)) fail.push(names[i] + ": " + p.m + " ignores the on-ramp"); }));
 
-/* Anything the user reads is French, and the punctuation rules that go with it. */
+/* Anything the user reads is French, and the punctuation rules that go with it.
+   Written as escapes on purpose: spelling the em dash out here would put one in
+   a file that exists to forbid them, and a search-and-replace over the repo
+   would then quietly eat the detector instead of the offence. The self-test
+   below is there because that is exactly what happened once. */
+const BANNED = /[\u2014\u003b\u2026\u2019]/;
+if (!BANNED.test("a \u2014 b") || BANNED.test("a, b and c")) {
+  console.log("FAIL  the banned-character check no longer detects what it names");
+  process.exit(1);
+}
+
 Object.entries(M).forEach(([k, m]) => {
   ["cue", "next", "load", "side"].forEach(f => {
     const t = m[f];
     if (typeof t !== "string" || !t) return;
-    if (/[, ;…’]/.test(t)) fail.push(k + "." + f + " uses a banned character");
+    if (BANNED.test(t)) fail.push(k + "." + f + " uses a banned character");
     if (/\s[?!,]|\S:|:\S/.test(t)) fail.push(k + "." + f + " breaks Quebec punctuation spacing");
   });
   if (!m.next) note.push(k + " has no progression, so the routine page shows nothing under it");
