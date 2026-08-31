@@ -29,7 +29,7 @@ const fmt=s=>{s=Math.max(0,Math.round(s));return Math.floor(s/60)+":"+String(s%6
 function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("on");
   clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2600);}
 
-const APP_VERSION="v1";
+const APP_VERSION="v2";
 const qualifies=s=>!!(s&&s.sets&&s.sets.length>=1);
 /* A movement done one side at a time writes a row per side, so a row is not a
    set. Everything that counts sets out loud counts them this way. */
@@ -211,7 +211,13 @@ function renderRoutine(){
     const rows=d.blocks.map((b,i)=>{const m=M[b.m];
       return "<li><span class='n'>"+(i+1)+"</span><span class='nm'>"+m.name+"</span><span class='s'>"+
         b.sets+" × "+blockReps(b)+(b.rest?" · "+b.rest+"s":"")+"</span></li>";}).join("");
-    const cues=d.blocks.map(b=>"<p><b>"+M[b.m].short+".</b> "+M[b.m].cue+"</p>").join("");
+    /* The load now names the base version, which is bodyweight for most of
+       them, so how to add the band or the vest lives in `next`. Without it on
+       screen the only place a progression ever appeared was the nudge, and the
+       nudge waits for her to top the rep range twice. */
+    const cues=d.blocks.map(b=>{const m=M[b.m];
+      return "<p><b>"+m.short+".</b> "+m.cue+
+        (m.next?"<span class='harder'><b>Plus dur</b>"+m.next+"</span>":"")+"</p>";}).join("");
     return "<div class='card"+(slot===up?" up":"")+"'><h3>"+(slot+1)+". "+d.name+
       (slot===up?"<span class='tag'>Next</span>":"")+"</h3><ul class='plan'>"+rows+"</ul>"+
       "<details class='cue'><summary>How to</summary><div class='body'>"+cues+"</div></details></div>";

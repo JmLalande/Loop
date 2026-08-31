@@ -1,7 +1,8 @@
 # Loop
 
-Fifteen minutes a day, at home. Hips, glutes and knees, built on a band, a
-20 lb vest and whatever furniture is nearby.
+Fifteen minutes a day, at home. Knees, glutes and core. Every movement is
+bodyweight in its base version except the two band walks, and the band and the
+vest are how it gets harder later.
 
 Live: https://jmlalande.github.io/Loop/
 
@@ -35,6 +36,17 @@ the whole app follows.
 `milestones.js` is the streak bank, in French. `DAYS` is keyed to an exact day
 count, `POOL` is the bonus that never repeats, `BREAKS` is what shows when a
 streak ends.
+
+`load` names the base version of a movement, and `next` is how to make it
+harder. Both are on screen: the load during the set, the progression on the
+routine page under the cue.
+
+Run `node check.js` after touching `program.js`. The spacing rules live across
+days and break quietly, so it asserts them: no movement on two days in a row
+anywhere in the loop, day 5 back into day 1 included, the two knee holds at
+least two days apart, holds carrying no RIR target, the on-ramp overriding every
+rep movement, French punctuation on everything she reads, and every session
+landing between twelve and eighteen minutes.
 
 ## Language
 

@@ -6,51 +6,60 @@
    here is ever gripped: the band is anchored to furniture or held down by her
    own foot, and the vest is worn. */
 const M = {
-  slthrust: {short:"SL thrust",     name:"Single-leg hip thrust",              reps:"10–15", lo:10, hi:15, side:"chaque jambe", load:"élastique sur les hanches", work:60, def:12, next:"L'élastique aux chevilles au lieu d'au-dessus des genoux, ou une pause de deux secondes en haut de chaque rep.", cue:"Les épaules sur le sofa, l'élastique en travers des hanches, les deux bouts sous ton pied au sol. L'autre jambe tendue ou repliée, comme tu veux. Pousse dans le talon et serre les fesses en haut. Garde les côtes basses, va pas chercher de la hauteur en creusant le dos."},
-  defrdl:   {short:"Deficit RDL",   name:"Deficit single-leg Romanian deadlift",reps:"8–10", lo:8,  hi:10, side:"chaque jambe", load:"veste 20 lb",     work:70, def:9,  next:"Un livre plus épais. L'amplitude en premier, toujours, avant tout le reste.", cue:"Debout sur un livre. Le poids sur une jambe, l'autre part vers l'arrière pendant que le torse descend. Pousse les hanches vers l'arrière, plie pas le genou. Descends jusqu'à ce que ça tire en arrière de la cuisse, puis remonte. Une main sur le mur, c'est correct, ça rend pas l'exercice plus facile."},
-  rdl:      {short:"SL RDL",        name:"Single-leg Romanian deadlift",       reps:"10–12", lo:10, hi:12, side:"chaque jambe", load:"veste 20 lb",     work:70, def:11, cue:"Pareil que la version sur le livre, mais à plat. Lentement en descendant, vitesse normale en remontant. Cherche l'étirement, pas le nombre de reps."},
-  frogpump: {short:"Frog pump",     name:"Frog pump",                          reps:"25–30", lo:25, hi:30, side:"",         load:"élastique sur les hanches", work:45, def:27, cue:"Sur le dos, les plantes de pieds collées ensemble, les genoux ouverts. L'élastique en travers des hanches. Petite amplitude, reps rapides, serre fort à chaque rep. Ça doit brûler."},
+  slthrust: {short:"SL thrust",     name:"Single-leg hip thrust",              reps:"10–15", lo:10, hi:15, side:"chaque jambe", load:"poids du corps", work:60, def:12, next:"L'élastique en travers des hanches, les deux bouts sous ton pied au sol. Ensuite, une pause de deux secondes en haut de chaque rep.", cue:"Les épaules sur le bord du sofa, un pied au sol, l'autre jambe levée. Pousse dans le talon au sol jusqu'à ce que ton corps fasse une ligne droite du genou à l'épaule, serre, redescends lentement. Garde les côtes basses, va pas chercher de la hauteur en creusant le dos."},
+  rdl:      {short:"SL RDL",        name:"Single-leg Romanian deadlift",       reps:"10–12", lo:10, hi:12, side:"chaque jambe", load:"poids du corps", work:70, def:11, next:"Mets la veste. Ensuite, monte sur un livre pour que la jambe libre descende plus bas.", cue:"Le poids sur une jambe, l'autre part vers l'arrière pendant que le torse descend. Pousse les hanches vers l'arrière, plie pas le genou. Descends jusqu'à ce que ça tire en arrière de la cuisse, puis remonte. Une main sur le mur, c'est correct, ça rend pas l'exercice plus facile."},
+  frogpump: {short:"Frog pump",     name:"Frog pump",                          reps:"25–30", lo:25, hi:30, side:"",         load:"poids du corps", work:45, def:27, next:"Plus de reps, ensuite une seconde de contraction en haut de chaque rep. Pas d'élastique sur celui-là, il tient mal en place.", cue:"Sur le dos, les plantes de pieds collées ensemble, les genoux ouverts vers l'extérieur. Pousse dans le bord extérieur des pieds et monte les hanches. Petite amplitude, reps rapides, serre fort à chaque fois. Ça doit brûler."},
 
-  wallsit:  {short:"Wall sit",      name:"Shallow wall sit",                   reps:"40s",   lo:40, hi:40, side:"",         load:"veste 20 lb",     work:40, def:40, hold:true, cue:"Descends juste du quart au tiers, pas proche de la cuisse parallèle au sol. Descendre bas écrase la rotule contre l'os, c'est exactement ce qui fait mal. Haut et difficile vaut mieux que bas et douloureux."},
-  tke:      {short:"Knee ext",      name:"Terminal knee extension",            reps:"15–20", lo:15, hi:20, side:"chaque jambe", load:"élastique",           work:70, def:17, next:"Recule plus loin de l'ancrage pour plus de tension.", cue:"L'élastique autour d'une patte de table à hauteur du genou, passé dans le pli en arrière du genou. Recule jusqu'à ce que ça tire ton genou en légère flexion. Redresse le genou contre l'élastique et serre la cuisse fort. Petit mouvement, debout tout le long."},
+  wallsit:  {short:"Wall sit",      name:"Wall sit",                           reps:"30–45s",lo:30, hi:45, side:"",         load:"poids du corps", work:38, def:38, hold:true, next:"Mets la veste avant d'allonger le temps.", cue:"Le dos à plat sur le mur, glisse vers le bas jusqu'à ce que les cuisses approchent la parallèle. Tiens sans bouger. Si le devant du genou se plaint, remonte plus haut et reste là."},
+  llplank:  {short:"Long plank",    name:"Long-lever plank",                   reps:"20–40s",lo:20, hi:40, side:"",         load:"poids du corps", work:30, def:30, hold:true, next:"Mets la veste, ou avance les coudes encore plus loin.", cue:"Les coudes devant les épaules au lieu d'en dessous. Serre les fesses et rentre les côtes. Pas mal plus dur qu'une planche normale."},
+  hollow:   {short:"Hollow",        name:"Hollow hold",                        reps:"20–30s",lo:20, hi:30, side:"",         load:"poids du corps", work:25, def:25, hold:true, next:"Allonge les jambes plus loin et étire les bras au-delà de la tête.", cue:"Sur le dos, les bras et les jambes décollés du sol. Le bas du dos reste collé au plancher. Dès qu'il décolle, plie les genoux jusqu'à ce qu'il recolle."},
+  deadbug:  {short:"Dead bug",      name:"Dead bug",                           reps:"8–10",  lo:8,  hi:10, side:"chaque côté",load:"poids du corps", work:60, def:9,  next:"Ralentis à quatre secondes par rep, ensuite allonge davantage la jambe qui bouge.", cue:"Sur le dos, les bras droits vers le plafond, les genoux pliés au-dessus des hanches. Descends lentement le bras et la jambe opposés vers le plancher, puis reviens. Le bas du dos reste plaqué tout le long. Dès qu'il décolle, réduis l'amplitude."},
 
-  sideabd:  {short:"Side abd",      name:"Side-lying hip abduction",           reps:"15–20", lo:15, hi:20, side:"chaque côté",load:"élastique",           work:70, def:17, next:"L'élastique aux chevilles au lieu d'au-dessus des genoux.", cue:"Couchée sur le côté, l'élastique au-dessus des genoux, les jambes empilées et presque droites. Monte la jambe du dessus lentement, tiens une seconde en haut, redescends plus lentement que tu as monté. Laisse pas tes hanches rouler vers l'arrière."},
-  latwalk:  {short:"Lateral walk",  name:"Band lateral walk",                  reps:"15 aller, 15 retour", lo:15, hi:15, side:"",   load:"élastique",           work:45, def:15, next:"L'élastique aux chevilles au lieu d'au-dessus des genoux.", cue:"L'élastique au-dessus des genoux, les pieds écartés pour qu'il soit déjà tendu. Reste en petit squat et marche de côté sans jamais coller les pieds ensemble. Quinze dans un sens, quinze au retour."},
-  kickback: {short:"Kickback",      name:"Standing band kickback",             reps:"15–20", lo:15, hi:20, side:"chaque jambe", load:"élastique",           work:70, def:17, cue:"L'élastique autour des deux chevilles, ancré ou passé autour de l'autre pied. Les mains sur un mur ou sur le dossier d'une chaise pour l'équilibre. Pousse une jambe droit vers l'arrière, serre, ramène en contrôlant. Pas d'élan, pas de dos creusé."},
+  sideabd:  {short:"Side abd",      name:"Side-lying hip abduction",           reps:"15–20", lo:15, hi:20, side:"chaque côté",load:"poids du corps", work:70, def:17, next:"L'élastique au-dessus des genoux, ensuite l'élastique aux chevilles.", cue:"Couchée sur le côté, les jambes empilées et presque droites. Monte la jambe du dessus lentement, tiens une seconde en haut, redescends plus lentement que tu as monté. Laisse pas tes hanches rouler vers l'arrière, c'est tout l'exercice."},
+  latwalk:  {short:"Lateral walk",  name:"Band lateral walk",                  reps:"15 aller, 15 retour", lo:15, hi:15, side:"",   load:"élastique",       work:45, def:15, next:"Descends l'élastique des genoux vers les chevilles.", cue:"L'élastique au-dessus des genoux, les pieds écartés pour qu'il soit déjà tendu. Reste en petit squat et marche de côté sans jamais coller les pieds ensemble. Quinze dans un sens, quinze au retour."},
+  kickback: {short:"Kickback",      name:"Standing band kickback",             reps:"15–20", lo:15, hi:20, side:"chaque jambe", load:"élastique",       work:70, def:17, next:"L'élastique aux chevilles au lieu d'au-dessus des genoux, ensuite une pause d'une seconde en haut.", cue:"L'élastique autour des deux chevilles, ancré ou passé sous l'autre pied. Les mains sur un mur ou sur le dossier d'une chaise pour l'équilibre. Pousse une jambe droit vers l'arrière, serre, ramène en contrôlant. Pas d'élan, pas de dos creusé."},
 
-  revlunge: {short:"Rev lunge",     name:"Short-range reverse lunge",          reps:"10–12", lo:10, hi:12, side:"chaque jambe", load:"veste 20 lb",     work:75, def:11, next:"Un pouce plus bas. Seulement après deux semaines sans aucune douleur à la profondeur actuelle.", cue:"Le pas va vers l'arrière, jamais vers l'avant. Descends seulement aussi bas que le genou gauche accepte sans aucune douleur, ce qui peut être le quart au début. Cette profondeur-là, tu la gardes deux semaines. La profondeur, ça se gagne."},
-  hipext:   {short:"Hip ext",       name:"Hip extension over a bed edge",      reps:"12–15", lo:12, hi:15, side:"",         load:"veste 20 lb",     work:40, def:13, cue:"Sur le ventre, les hanches juste au bord du lit, les jambes dans le vide, le haut du corps à plat sur le matelas. Monte les deux jambes jusqu'à ce que ton corps fasse une ligne droite, serre, redescends lentement. Les genoux plient jamais et portent jamais de poids."},
-  splitsq:  {short:"Split hold",    name:"Split-squat hold, shallow",          reps:"30s",   lo:30, hi:30, side:"chaque jambe", load:"veste 20 lb",     work:70, def:30, hold:true, cue:"Grande fente, puis descends seulement à mi-chemin. Moins bas qu'une fente normale, même raison de rotule que le wall sit. Tiens la position sans bouger. Une main sur le mur, c'est correct."},
+  revlunge: {short:"Rev lunge",     name:"Deficit reverse lunge",              reps:"10–12", lo:10, hi:12, side:"chaque jambe", load:"poids du corps", work:75, def:11, next:"Mets la veste, ensuite prends un livre plus épais.", cue:"Debout sur un livre, recule d'un pas en descendant du livre et descends jusqu'à ce que le genou arrière frôle le plancher. Pousse dans le talon avant pour te relever. Le pas va vers l'arrière, jamais vers l'avant. Si le genou avant se plaint, prends un livre plus mince ou pas de livre du tout."},
+  splitsq:  {short:"Split hold",    name:"Split-squat hold",                   reps:"30s",   lo:30, hi:30, side:"chaque jambe", load:"poids du corps", work:70, def:30, hold:true, next:"Mets la veste avant d'allonger le temps.", cue:"Grande fente, puis descends jusqu'à ce que la cuisse avant soit autour de soixante degrés et que le genou arrière soit à quelques pouces du plancher. Tiens sans bouger. Une main sur le mur, c'est correct."},
 
-  llplank:  {short:"Long plank",    name:"Long-lever plank",                   reps:"20–40s",lo:20, hi:40, side:"",         load:"veste 20 lb",     work:30, def:30, hold:true, cue:"Les coudes devant les épaules au lieu d'en dessous. Pas mal plus dur qu'une planche normale. Serre les fesses et rentre les côtes."},
-  /* Parked. Day 2 and day 4 already carry the core work. Put it back on day 5
-     if she ever wants a fourth block there. */
-  plank:    {short:"Plank",         name:"Plank",                              reps:"30–45s",lo:30, hi:45, side:"",         load:"veste 20 lb",     work:40, def:38, hold:true, cue:"Les coudes sous les épaules, la veste sur le dos. Une ligne droite de la tête aux talons."},
-  sideplank:{short:"Side plank",    name:"Side plank",                         reps:"20–40s",lo:20, hi:40, side:"chaque côté",load:"veste 20 lb",     work:70, def:30, hold:true, cue:"Le coude sous l'épaule, les hanches empilées et soulevées. Commence à genoux si tes hanches descendent. Laisse pas ta poitrine rouler vers le sol."},
-  hollow:   {short:"Hollow",        name:"Hollow hold",                        reps:"20–30s",lo:20, hi:30, side:"",         load:"veste 20 lb",     work:25, def:25, hold:true, cue:"Sur le dos, les bras et les jambes décollés du sol. Le bas du dos reste collé au plancher. Dès qu'il décolle, plie les genoux jusqu'à ce qu'il recolle."},
-  revcrunch:{short:"Rev crunch",    name:"Reverse crunch and leg raise",       reps:"10–15", lo:10, hi:15, side:"",         load:"élastique aux chevilles", work:40, def:12, cue:"L'élastique autour des chevilles. Décolle les hanches du plancher en haut au lieu de juste balancer les jambes. Redescends lentement."}
+  sideplank:{short:"Side plank",    name:"Side plank",                         reps:"20–40s",lo:20, hi:40, side:"chaque côté",load:"poids du corps", work:70, def:30, hold:true, next:"Mets la veste, ou lève la jambe du dessus pendant que tu tiens.", cue:"Le coude sous l'épaule, les hanches empilées et soulevées. Commence à genoux si tes hanches descendent. Laisse pas ta poitrine rouler vers le sol."},
+  revcrunch:{short:"Rev crunch",    name:"Reverse crunch and leg raise",       reps:"10–15", lo:10, hi:15, side:"",         load:"poids du corps", work:40, def:12, next:"L'élastique autour des chevilles, ensuite ralentis la descente à trois secondes.", cue:"Sur le dos, les jambes en l'air. Décolle les hanches du plancher en haut au lieu de juste balancer les jambes de haut en bas. Redescends lentement."},
+
+  /* Parked. They have no anchor at knee height. Dead bug replaced it. */
+  tke:      {short:"Knee ext",      name:"Terminal knee extension",            reps:"15–20", lo:15, hi:20, side:"chaque jambe", load:"élastique",       work:70, def:17, next:"Recule plus loin de l'ancrage pour plus de tension.", cue:"L'élastique autour d'une patte de table à hauteur du genou, passé dans le pli en arrière du genou. Recule jusqu'à ce que ça tire ton genou en légère flexion. Redresse le genou contre l'élastique et serre la cuisse fort."},
+  /* Parked. Their bed is too low for it. Kickback replaced it. */
+  hipext:   {short:"Hip ext",       name:"Hip extension over a bed edge",      reps:"12–15", lo:12, hi:15, side:"",         load:"poids du corps", work:40, def:13, next:"Mets la veste.", cue:"Sur le ventre, les hanches au bord du lit, les jambes dans le vide. Monte les deux jambes jusqu'à ce que ton corps fasse une ligne droite, serre, redescends lentement."},
+  /* Parked. Days 1, 2, 4 and 5 already carry the core work. */
+  plank:    {short:"Plank",         name:"Plank",                              reps:"30–45s",lo:30, hi:45, side:"",         load:"poids du corps", work:38, def:38, hold:true, next:"Mets la veste.", cue:"Les coudes sous les épaules. Une ligne droite de la tête aux talons."}
 };
 
-/* Reps left in the tank at the end of a set. Lower is harder. The knee day runs
-   deliberately softer than the glute days, and the reverse lunge overrides its
-   own day, because that one movement is the one talking to the bad knee. */
+/* Reps left in the tank at the end of a set. Lower is harder. The deficit
+   reverse lunge overrides its own day and runs softer, because that one
+   movement is the one talking to the bad knee. */
 const DEFAULT_RIR = [1,2], ONRAMP_RIR = [3,4];
 
-/* The cycle. Five workouts in order, and a cursor that moves only when a
-   session is logged. Nothing here is keyed to the calendar, and that is the
-   whole point: the two rest days are not Saturday and Sunday, they are the two
-   freezes, spent wherever the week actually needs them. A frozen day holds the
-   cursor still, so the cycle slides and Monday is a different workout depending
-   on what came before it.
+/* The cycle. Five workouts in a fixed order and a cursor that moves only when a
+   session is logged. Nothing is keyed to the calendar, and that is the point:
+   the two rest days are not Saturday and Sunday, they are the two freezes,
+   spent wherever the week actually needs them. A frozen day holds the cursor
+   still, so the cycle slides and Monday is a different workout each week.
 
-   Days 2 and 5 carry the knee work and are three apart in the order, which is
-   what keeps them apart no matter how the cycle slides. */
+   The order is a loop, day 5 running back into day 1. Nothing repeats on
+   adjacent days anywhere in that loop, and the two knee holds (wall sit on
+   day 1, split-squat hold on day 3) sit two days apart. Because the order is
+   fixed and only the calendar slides, those distances hold no matter how the
+   cycle drifts against the week. Reordering the days or moving a movement
+   breaks them, so `node check.js` re-checks it for you.
+
+   Within a day, block order is execution order. Hardest and most technical
+   first, core last. Day 3 runs the deficit lunge second on purpose: it is the
+   highest-risk movement in the program and it should not land on tired legs. */
 const CYCLE = [
-  {name:"Hips",         rir:[1,2], blocks:[{m:"slthrust",sets:4,rest:45},{m:"defrdl",sets:3,rest:55},{m:"frogpump",sets:2,rest:40}]},
-  {name:"Knees & core", rir:[2,3], blocks:[{m:"wallsit",sets:4,rest:65},{m:"tke",sets:3,rest:35},{m:"llplank",sets:2,rest:35},{m:"hollow",sets:2,rest:35}]},
-  {name:"Side glutes",  rir:[1,2], blocks:[{m:"sideabd",sets:3,rest:35},{m:"latwalk",sets:3,rest:35},{m:"revlunge",sets:3,rest:55,rir:[2,3]}]},
-  {name:"Glutes & core",rir:[1,2], blocks:[{m:"slthrust",sets:4,rest:35,reps:"15–20",lo:15,hi:20},{m:"hipext",sets:3,rest:40},{m:"sideplank",sets:2,rest:35},{m:"revcrunch",sets:2,rest:35}]},
-  {name:"Hips & knees", rir:[1,2], blocks:[{m:"splitsq",sets:3,rest:60},{m:"rdl",sets:3,rest:50},{m:"kickback",sets:2,rest:35}]}
+  {name:"Knees & core", rir:[1,2], blocks:[{m:"wallsit",sets:5,rest:40},{m:"deadbug",sets:3,rest:30},{m:"llplank",sets:3,rest:30},{m:"frogpump",sets:2,rest:30}]},
+  {name:"Glutes",       rir:[1,2], blocks:[{m:"slthrust",sets:4,rest:45},{m:"sideabd",sets:3,rest:38},{m:"sideplank",sets:2,rest:32}]},
+  {name:"Legs & knees", rir:[1,2], blocks:[{m:"rdl",sets:3,rest:42,reps:"8–10",lo:8,hi:10},{m:"revlunge",sets:3,rest:45,rir:[2,3]},{m:"splitsq",sets:3,rest:42}]},
+  {name:"Glutes & side",rir:[1,2], blocks:[{m:"slthrust",sets:4,rest:35,reps:"15–20",lo:15,hi:20},{m:"latwalk",sets:3,rest:32},{m:"frogpump",sets:2,rest:32},{m:"revcrunch",sets:2,rest:30}]},
+  {name:"Hips & core",  rir:[1,2], blocks:[{m:"rdl",sets:3,rest:48},{m:"kickback",sets:3,rest:40},{m:"hollow",sets:3,rest:35}]}
 ];
 
 /* Two freezes granted at the top of every cycle, no carryover. This is what
@@ -58,11 +67,11 @@ const CYCLE = [
    more than two per cycle, and a cycle that spends both is seven days long. */
 const FREEZES_PER_CYCLE = 2;
 
-/* Weeks 1-2 hold her back on purpose: 3-4 reps in reserve, band only, no vest
-   on anything, no progression. Muscle adapts in weeks and tendons take about
+/* Weeks 1-2 hold her back on purpose: 3-4 reps in reserve and the base version
+   of everything, no progressions. Muscle adapts in weeks and tendons take about
    three months. The gap between those two is where knees get hurt. */
 const ONRAMP_DAYS = 14;
-const ONRAMP_NOTE = "garde 3 à 4 reps en réserve, élastique seulement, pas de veste";
+const ONRAMP_NOTE = "garde 3 à 4 reps en réserve, version de base, aucune progression";
 
 function buildPhases(slot, onramp){
   const day = CYCLE[slot], ph = [];
