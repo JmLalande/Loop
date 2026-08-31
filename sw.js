@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elle-v1';
+const CACHE_NAME = 'loop-v1';
 const ASSETS = ['./','./index.html','./app.js','./program.js','./milestones.js','./manifest.json'];
 
 self.addEventListener('install', e => {
@@ -13,7 +13,7 @@ self.addEventListener('install', e => {
    origin, not to the path, and this account serves more than one app from
    jmlalande.github.io. An unfiltered sweep here evicts the neighbour's offline
    files every time this one activates, and the neighbour returns the favour. */
-const CACHE_PREFIX = 'elle-';
+const CACHE_PREFIX = 'loop-';
 
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(keys =>

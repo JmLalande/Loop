@@ -1,9 +1,9 @@
-# Streak
+# Loop
 
 Fifteen minutes a day, at home. Hips, glutes and knees, built on a band, a
 20 lb vest and whatever furniture is nearby.
 
-Working title. The name, the repo and the URL are still open.
+Live: https://jmlalande.github.io/Loop/
 
 ## The cycle, not the week
 
@@ -58,7 +58,7 @@ English for the app chrome: movement names, tabs, buttons, stats.
 IndexedDB, this browser only. **Export from the Progress tab now and then**,
 clearing site data wipes everything.
 
-`DB_NAME`, `CACHE_NAME` and the cache prefix are all `elle-`. They must never
+`DB_NAME`, `CACHE_NAME` and the cache prefix are all `loop-`. They must never
 collide with another app on the same GitHub Pages account, because storage there
 is shared across every repo of the account.
 

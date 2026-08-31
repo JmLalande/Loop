@@ -1,6 +1,6 @@
 "use strict";
 /* ---------------------------------------------------------------- storage */
-const DB_NAME="elle-tracker", DB_VER=1;
+const DB_NAME="loop-tracker", DB_VER=1;
 let db=null;
 function open(){return new Promise((res,rej)=>{
   const r=indexedDB.open(DB_NAME,DB_VER);
