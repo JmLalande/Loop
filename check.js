@@ -30,11 +30,19 @@ for (let i = 0; i < CYCLE.length; i++) {
           .forEach(m => fail.push(m + " runs on " + names[i] + " and again on " + names[j] + ", which are adjacent"));
 }
 
-/* The two knee holds stay at least two days apart. */
-const holds = ["wallsit", "splitsq"];
+/* The knee holds stay at least two days apart. This one is about the knee, not
+   about isometrics in general: the planks and the hollow hold are core work and
+   have always run on adjacent days. The list is named, so it goes quiet the day
+   a movement leaves the cycle. It reports what it found for that reason. */
+const KNEE_HOLDS = ["wallsit", "splitsq"];
 const at = m => moves.findIndex(day => day.includes(m));
-if (holds.every(m => at(m) >= 0) && apart(at(holds[0]), at(holds[1])) < 2)
-  fail.push("the knee holds are " + apart(at(holds[0]), at(holds[1])) + " day(s) apart, minimum is 2");
+const inCycle = KNEE_HOLDS.filter(m => at(m) >= 0);
+note.push("knee holds in the cycle: " + (inCycle.length ? inCycle.join(" \u00b7 ") : "none") +
+  (inCycle.length < 2 ? "  (spacing rule has nothing to check)" : ""));
+inCycle.forEach((a, i) => inCycle.slice(i + 1).forEach(b => {
+  if (apart(at(a), at(b)) < 2)
+    fail.push("the knee holds are " + apart(at(a), at(b)) + " day(s) apart, minimum is 2");
+}));
 
 /* Every movement the cycle names has to exist. */
 moves.flat().filter(m => !M[m]).forEach(m => fail.push("unknown movement: " + m));
