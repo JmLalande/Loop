@@ -65,7 +65,7 @@ English for the app chrome: movement names, tabs, buttons, stats.
 - A day counts as soon as **one set** is logged. A short session keeps the
   streak and still moves the cursor.
 - The clock runs the whole session. Work never auto-advances, it counts into
-  overtime until you tap. Rest auto-advances, with four ticks and a go tone.
+  overtime until you tap. Rest auto-advances, with a double low beep ten seconds out, four ticks and a go tone.
 - Tapping anywhere ends the current phase and **shifts the entire remaining
   schedule**, so finishing early or late reflows the projected finish time.
 - Weeks 1-2 hold her to 3-4 reps in reserve, on the base version of every
