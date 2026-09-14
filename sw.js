@@ -1,4 +1,4 @@
-const CACHE_NAME = 'loop-v9';
+const CACHE_NAME = 'loop-v10';
 const ASSETS = ['./','./index.html','./app.js','./program.js','./milestones.js','./manifest.json'];
 
 self.addEventListener('install', e => {
